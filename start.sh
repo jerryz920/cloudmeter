@@ -12,7 +12,7 @@ cd /var/run/cloudmeter
 echo 'running' > running
 echo 'finished' > finished
 . /etc/profile
-export AWS_CONFIG_FILE=/home/ubuntu/.aws
+#export AWS_CONFIG_FILE=/home/ubuntu/.aws
 
 wget http://169.254.169.254/latest/user-data -O userenv.sh
 
@@ -23,6 +23,8 @@ else
 	export RECEVER_PORT=1985
 	export STATE_KEY=recever_state
 	export ACCT_KEY=recever_acct
+	export AWS_ACCESS_KEY_ID=AKIAIURU4SIO3ITY7CIA
+	export AWS_SECRET_ACCESS_KEY=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
 fi 
 
 case $CLOUDMETER_TYPE in

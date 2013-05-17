@@ -14,7 +14,7 @@ def s3_upload(key)
   #
   #	Note that we upload the entire stat each time
   #
-  `cat /proc/ec2_netstat >> /tmp/tmpreceverstat;  aws s3 put-object --key #{key} --bucket sonarcloud --body /tmp/tmpreceverstat`
+  `cat /proc/ec2_netstat >> /tmp/tmpreceverstat; ifconfig eth0 | grep 'RX bytes' >> /tmp/tmpreceverstat;  aws s3 put-object --key #{key} --bucket sonarcloud --body /tmp/tmpreceverstat`
   sleep 60
 end
 
