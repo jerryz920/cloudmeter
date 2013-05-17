@@ -172,6 +172,8 @@ class AMIRecever < AMIWorker
 	attr_string << "export CLOUDMETER_TYPE=recever;"
 	attr_string << "export STATE_KEY=#{@state_key};"
 	attr_string << "export ACCT_KEY=#{@acct_key};"
+	attr_string << "export AWS_ACCESS_KEY_ID=#{COMMON_ARGS[:aws_access_key]};"
+	attr_string << "export AWS_SECRET_ACCESS_KEY=#{COMMON_ARGS[:aws_secret_key]};"
 	puts "#{attr_string}"
 	@instance_id = launch_instance(id, attr_string, @zone, @region)
   end
@@ -196,7 +198,9 @@ class AMISender < AMIWorker
 	attr_string << "export RECEVER_SIZE=#{arghash[:SIZE]};"
 	attr_string << "export CLOUDMETER_TYPE=sender;"
 	attr_string << "export STATE_KEY=#{@state_key};"
-	attr_string << "export ACCT_KEY=#{@acct_key}"
+	attr_string << "export ACCT_KEY=#{@acct_key};"
+	attr_string << "export AWS_ACCESS_KEY_ID=#{COMMON_ARGS[:aws_access_key]};"
+	attr_string << "export AWS_SECRET_ACCESS_KEY=#{COMMON_ARGS[:aws_secret_key]};"
 	@instance_id = launch_instance(id, attr_string, @zone, @region)
   end
 
